@@ -44,18 +44,38 @@
       var output
       if (card.output) {
         output = card.output + ""
-      } else if (this.tplLink) {
-        output = this.tplLink
-      } else {
-        output = "<h1>{{title}}</h1>"
-      }
-      for (var attr in card) {
-        if (attr !== "_data") {
-          //replace {{}}
-          re = new RegExp("{{"+attr+"}}", "gim")
-          output = output.replace(re, card[attr])
+        for (var attr in card) {
+          if (attr !== "_data" || attr !== "output") {
+            //replace {{}}
+            re = new RegExp("{{"+attr+"}}", "gim")
+            output = output.replace(re, card[attr])
+          }
         }
+      } else {
+        var outputType
+        if (card.outputType) {
+          outputType = card.outputType
+        } else {
+          outputType = "link-display"  
+        }
+        var outputContent
+        if (card.content) {
+          outputContent = card.content
+        } else {
+          outputContent = ""
+        }
+        var outAttrs 
+        for (var attr in card) {
+          if (attr !== "_data" || attr !== "output") {
+            //replace {{}}
+            re = new RegExp("{{"+attr+"}}", "gim")
+            outputContent = outputContent.replace(re, card[attr])
+            outAttrs = outAttrs + " " + attr + "='" + card[attr]+ "' " 
+          }
+        }
+        output = "<"+ outputType + outAttrs + " >" + outputContent + "</"+ outputType + ">"
       }
+
       return output
     },
   })
