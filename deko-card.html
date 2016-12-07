@@ -32,7 +32,6 @@
     </style>
     <paper-material elevation="2" inner-h-t-m-l="[[getHtml(card)]]">
     </paper-material>
-    <iron-ajax auto url="/link.output.ht" handle-as="text" last-response="{{tplLink}}"></iron-ajax>
   </template>
 </dom-module>
 <script>
@@ -45,8 +44,10 @@
       var output
       if (card.output) {
         output = card.output + ""
-      } else {
+      } else if (this.tplLink) {
         output = this.tplLink
+      } else {
+        output = "<h1>{{title}}</h1>"
       }
       for (var attr in card) {
         if (attr !== "_data") {
