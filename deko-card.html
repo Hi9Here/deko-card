@@ -1,0 +1,52 @@
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../iron-flex-layout/classes/iron-flex-layout.html">
+<!--
+  `<deko-card></deko-card>` card display for deko
+  @demo demo.html
+-->
+<dom-module id="deko-card">
+  <template>
+    <link rel="import" href="../paper-styles/shadow.html">
+    <link rel="import" href="../paper-styles/typography.html">
+    <link rel="import" href="../paper-input/paper-input.html">
+    <link rel="import" href="../paper-material/paper-material.html">
+    <link rel="import" href="../paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="../paper-fab/paper-fab.html">
+    <link rel="import" href="../iron-icon/iron-icon.html">
+    <link rel="import" href="../iron-image/iron-image.html">
+    <link rel="import" href="../iron-icons/iron-icons.html">
+    <link rel="import" href="../iron-icons/image-icons.html">
+    <link rel="import" href="../iron-icons/social-icons.html">
+    <style>
+      paper-material {
+        background-color: #fafafa;
+        color: #212121;
+        height: 260px;
+        width: 200px;
+        display: inline-block;
+        margin: 5px;
+        overflow: ovrlay;
+        cursor: pointer; 
+        cursor: hand;
+      }
+    </style>
+    <paper-material elevation="2" inner-h-t-m-l="[[getHtml(card)]]">
+    </paper-material>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: "deko-card",
+    getHtml: function(card){
+      var output = card.output + ""
+      for (var attr in card) {
+        if (attr !== "_data") {
+          //replace {{}}
+          re = new RegExp("{{"+attr+"}}", "gim")
+          output = output.replace(re, card[attr])
+        }
+      }
+      return output
+    },
+  })
+</script>
