@@ -36,6 +36,9 @@
 <script>
   Polymer({
     is: "deko-card",
+    properties:{
+      card:Object,
+    },
     getHtml: function(card){
       var output = card.output + ""
       for (var attr in card) {
