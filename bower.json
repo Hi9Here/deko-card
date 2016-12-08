@@ -9,6 +9,7 @@
   ],
   "dependencies": {
     "iron-flex-layout": "*",
-    "paper-material": "*"
+    "paper-material": "*",
+    "link-display":"Hi9Here/link-display"
   }
 }
