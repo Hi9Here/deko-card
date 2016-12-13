@@ -35,7 +35,7 @@
     <template is="dom-if" if="{{edit}}">
       <contextual-menu>
         <div class="menu">
-          <paper-button on-tap="edit">Edit</paper-button>
+          <paper-button on-tap="editThis">Edit</paper-button>
         </div>
         <paper-material elevation="2" inner-h-t-m-l="[[getHtml(card)]]"></paper-material>
       </contextual-menu>
@@ -51,6 +51,10 @@
     is: "deko-card",
     properties:{
       card:Object,
+      edit:{
+        type:Boolean,
+        value:false,
+      }
     },
     getHtml: function(card){
       var output
