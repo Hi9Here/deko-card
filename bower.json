@@ -10,7 +10,7 @@
   "dependencies": {
     "iron-flex-layout": "*",
     "paper-material": "*",
-    "contextual-menu": "marcus7777/paper-context-dropdown",
+    "paper-context-dropdown": "marcus7777/paper-context-dropdown",
     "link-display":"Hi9Here/link-display"
   }
 }
