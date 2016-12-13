@@ -1,5 +1,5 @@
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../contextual-menu/contextual-menu.html">
+<link rel="import" href="../paper-context-dropdown/paper-context-dropdown.html">
 <link rel="import" href="../paper-material/paper-material.html">
 <link rel="import" href="../paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../link-display/link-display.html">
@@ -33,12 +33,12 @@
       }
     </style>
     <template is="dom-if" if="{{edit}}">
-      <contextual-menu>
+      <paper-context-dropdown>
         <div class="menu">
           <paper-button on-tap="editThis">Edit</paper-button>
         </div>
         <paper-material elevation="2" inner-h-t-m-l="[[getHtml(card)]]"></paper-material>
-      </contextual-menu>
+      </paper-context-dropdown>
     </template>
     <template is="dom-if" if="{{!edit}}">
       <paper-material elevation="2" inner-h-t-m-l="[[getHtml(card)]]"></paper-material>
