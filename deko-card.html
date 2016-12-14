@@ -101,8 +101,12 @@
       
       if (card) {
         var key = card.attributes.__key.value
+
+        for (var i = 0, atts = card.attributes, n = atts.length, cardData = {}; i < n; i++){
+          cardData[atts[i].nodeName] = atts[i].nodeValue
+        }
         var target = e.target
-        this.fire("tapped",{cardType: cardType, key: key, target: target})
+        this.fire("tapped",{card: cardData, cardType: cardType, key: key, target: target})
       } else {
         console.log(e.target)
       }
