@@ -77,6 +77,8 @@
             //replace {{}}
             re = new RegExp("{{"+attr+"}}", "gim")
             outputContent = outputContent.replace(re, card[attr])
+            if (attr ) {
+            }
             outAttrs = outAttrs + " " + attr + "='" + card[attr]+ "' " 
           }
         }
@@ -86,7 +88,22 @@
       return output
     },
     tapped: function(e) {
-      console.log(e.target)
+      var target = null
+      var cardType = this.card.outputType || "link-display" 
+      if (target = e.target.parentNode.parentNode.parentNode.parentNode.querySelector(cardType)){
+      } else if (target = e.target.querySelector(cardType)){
+      } else if (target = e.target.parentNode.querySelector(cardType)){
+      } else if (target = e.target.parentNode.parentNode.querySelector(cardType)){
+      } else if (target = e.target.parentNode.parentNode.parentNode.querySelector(cardType)){
+      } else if (target = e.target.parentNode.parentNode.parentNode.parentNode.querySelector(cardType)){
+      }
+      
+      if (target) {
+        console.log(target.attributes.__key.value)
+        this.fire("tapped",target.attributes.__key.value)
+      } else {
+        console.log(e.target)
+      }
     },
   })
 </script>
