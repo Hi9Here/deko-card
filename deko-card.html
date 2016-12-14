@@ -90,8 +90,7 @@
     tapped: function(e) {
       var target = null
       var cardType = this.card.outputType || "link-display" 
-      if (target = e.target.parentNode.parentNode.parentNode.parentNode.querySelector(cardType)){
-      } else if (target = e.target.querySelector(cardType)){
+      if (target = e.target.querySelector(cardType)){
       } else if (target = e.target.parentNode.querySelector(cardType)){
       } else if (target = e.target.parentNode.parentNode.querySelector(cardType)){
       } else if (target = e.target.parentNode.parentNode.parentNode.querySelector(cardType)){
