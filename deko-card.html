@@ -31,7 +31,7 @@
         cursor: hand;
       }
     </style>
-    <paper-material elevation="2" inner-h-t-m-l="[[getHtml(card,edit)]]"></paper-material>    
+    <paper-material on-tap="tapped" elevation="2" inner-h-t-m-l="[[getHtml(card,edit)]]"></paper-material>    
   </template>
 </dom-module>
 <script>
@@ -86,6 +86,9 @@
       return output
     },
     editing: function(a,b,c) {
+      console.log(a,b,c)
+    },
+    tapped: function(a,b,c) {
       console.log(a,b,c)
     },
   })
