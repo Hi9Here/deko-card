@@ -88,18 +88,19 @@
       return output
     },
     tapped: function(e) {
-      var target = null
+      var card = null
       var cardType = this.card.outputType || "link-display" 
-      if (target = e.target.querySelector(cardType)){
-      } else if (target = e.target.parentNode.querySelector(cardType)){
-      } else if (target = e.target.parentNode.parentNode.querySelector(cardType)){
-      } else if (target = e.target.parentNode.parentNode.parentNode.querySelector(cardType)){
-      } else if (target = e.target.parentNode.parentNode.parentNode.parentNode.querySelector(cardType)){
+      if (card = e.target.querySelector(cardType)){
+      } else if (card = e.target.parentNode.querySelector(cardType)){
+      } else if (card = e.target.parentNode.parentNode.querySelector(cardType)){
+      } else if (card = e.target.parentNode.parentNode.parentNode.querySelector(cardType)){
+      } else if (card = e.target.parentNode.parentNode.parentNode.parentNode.querySelector(cardType)){
       }
       
-      if (target) {
-        console.log(target.attributes.__key.value)
-        this.fire("tapped",target.attributes.__key.value)
+      if (card) {
+        var key = card.attributes.__key.value
+        var target = e.target
+        this.fire("tapped",{cardType: cardType, key: key, target: target})
       } else {
         console.log(e.target)
       }
