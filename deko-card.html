@@ -70,7 +70,7 @@
         }
         var outAttrs = ""
         if (edit) {
-          outAttrs = " edit"
+          outAttrs = " edit on-editThis=\"editThis\""
         }
         for (var attr in card) {
           if (attr !== "_data" || attr !== "output") {
@@ -84,6 +84,9 @@
       }
 
       return output
+    },
+    editThis:function(a,b,c) {
+      console.log(a,b,c)
     },
   })
 </script>
