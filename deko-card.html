@@ -46,10 +46,10 @@
     },
     getHtml: function(card, edit){
       var output
-      if (card.output) {
-        output = card.output + ""
+      if (card._output) {
+        output = card._output + ""
         for (var attr in card) {
-          if (attr !== "_data" || attr !== "output") {
+          if (attr !== "_data" || attr !== "_output") {
             //replace {{}}
             re = new RegExp("{{"+attr+"}}", "gim")
             output = output.replace(re, card[attr])
