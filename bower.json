@@ -10,8 +10,8 @@
   "dependencies": {
     "polymer": "polymer/polymer#~1.7.1",
     "iron-flex-layout": "PolymerElements/iron-flex-layout#b8c85345df",
-    "icon-icons": "*",
-    "iron-icon": "polymerelements/iron-icon#e77365a99a",
+    "iron-icon": "PolymerElements/iron-icon#e77365a99a",
+    "iron-icons": "PolymerElements/iron-icons",
     "paper-toolbar": "PolymerElements/paper-toolbar#~1.1.7",
     "paper-material": "PolymerElements/paper-material#~1.0.6"
   }
