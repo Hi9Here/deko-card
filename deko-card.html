@@ -86,7 +86,7 @@
             //replace {{}}
             re = new RegExp("{{"+attr+"}}", "gim")
             var theString
-            if (card[attr] === 'object') {
+            if (typeof card[attr] === 'object') {
               theString =  JSON.stringify(card[attr] )
             } else {
               theString = card[attr] + ""
