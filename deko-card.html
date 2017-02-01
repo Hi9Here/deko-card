@@ -32,10 +32,10 @@
         <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
         <div class="title" ></div>
         <template is="dom-if" if="{{edit}}">
-          <iron-icon id="edit" icon="more-vert" style="height:90%"></iron-icon>
+          <iron-icon id="edit" on-tap="openEdit" icon="more-vert" style="height:90%"></iron-icon>
         </template>
       </paper-toolbar>
-      <content></content>
+      <div inner-h-t-m-l="[[getHtml(card,edit)]]"></div>
      </paper-material>
     
   </template>
@@ -52,6 +52,52 @@
         type:String,
         value:"bookmark",
       },
+      card:Object,
     },
+    getHtml: function(card, edit){
+      var output
+      if (card._output) {
+        output = card._output + ""
+        for (var attr in card) {
+          if (attr !== "_data" || attr !== "_output") {
+            //replace {{}}
+            re = new RegExp("{{"+attr+"}}", "gim")
+            output = output.replace(re, card[attr])
+          }
+        }
+      } else {
+        var outputType
+        if (card.outputType) {
+          outputType = card.outputType
+        } else {
+          outputType = "link-display"  
+        }
+        var outputContent
+        if (card.content) {
+          outputContent = card.content
+        } else {
+          outputContent = ""
+        }
+        var outAttrs = ""
+        if (edit) {
+          outAttrs = " edit"
+        }
+        for (var attr in card) {
+          if (attr !== "_data" || attr !== "output") {
+            //replace {{}}
+            re = new RegExp("{{"+attr+"}}", "gim")
+            outputContent = outputContent.replace(re, card[attr])
+            if (attr ) {
+            }
+            outAttrs = outAttrs + " " + attr + "='" + card[attr]+ "' " 
+          }
+        }
+        output = "<"+ outputType + outAttrs + " >" + outputContent + "</"+ outputType + ">"
+      }
+      return output
+    },
+    openEdit : function() {
+      this.fire("edit", this.key)
+    }
   })
 </script>
