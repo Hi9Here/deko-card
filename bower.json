@@ -8,10 +8,9 @@
     "web-components"
   ],
   "dependencies": {
+    "polymer": "polymer/polymer#~1.7.1",
     "iron-flex-layout": "PolymerElements/iron-flex-layout#b8c85345df",
-    "iron-icon": "PolymerElements/iron-icon",
-    "iron-icons": "PolymerElements/iron-icons",
-    "link-display":"Hi9Here/link-display",
+    "icon-icons": "*",
     "iron-icon": "polymerelements/iron-icon#e77365a99a",
     "paper-toolbar": "PolymerElements/paper-toolbar#~1.1.7",
     "paper-material": "PolymerElements/paper-material#~1.0.6"
