@@ -85,7 +85,14 @@
           if (attr !== "_data" || attr !== "output") {
             //replace {{}}
             re = new RegExp("{{"+attr+"}}", "gim")
+            var theString
+            if (card[attr] === 'object') {
+              theString =  JSON.stringify(card[attr] )
+            } else {
+              theString = card[attr] + ""
+            }
             outputContent = outputContent.replace(re, card[attr])
+            
             if (attr ) {
             }
             outAttrs = outAttrs + " " + attr + "='" + card[attr]+ "' " 
