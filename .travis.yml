@@ -1,14 +1,16 @@
 language: node_js
 sudo: false
 node_js: stable
-apt:
-sources:
-- google-chrome
-packages:
-- google-chrome-stable
+addons:
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
 before_script:
 - npm install web-component-tester
 - npm install bower
 - export PATH=$PWD/node_modules/.bin:$PATH
 - bower install -s
-script: xvfb-run wct
+script:
+- xvfb-run wct
