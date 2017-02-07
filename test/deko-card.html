@@ -27,6 +27,20 @@
             done()
           })
         })
+
+        suite('deko-app tests', function() {
+        var home;
+
+        setup(function() {
+          home = fixture('dekoCard');
+        });
+
+        test('paper-toolbar iron-icon has a value', function() {
+          var icon = Polymer.dom(home.root).querySelector('paper-toolbar iron-icon');
+          assert.equal(icon.icon, "bookmark");
+        });
+      });
+
         suite('basic usage', function () {		
           test('can be triggered with space', function(done) {		
             dekoCard.addEventListener('keydown', function() {		
