@@ -14,5 +14,8 @@
     "iron-icons": "PolymerElements/iron-icons",
     "paper-toolbar": "PolymerElements/paper-toolbar",
     "paper-material": "PolymerElements/paper-material"
+  },
+  "devDependencies": {
+    "web-component-tester": "^5.0.0"
   }
 }
