@@ -17,6 +17,6 @@
   },
   "devDependencies": {
     "web-component-tester": "^5.0.0",
-    "iron-test-helpers":*
+    "iron-test-helpers":"*"
   }
 }
