@@ -5,6 +5,7 @@
     <script src="../../webcomponentsjs/webcomponents.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
     <script src="../../test-fixture/test-fixture-mocha.js"></script>
+    <script src="../../iron-test-helpers/mock-interactions.js"></script>
     <link rel="import" href="../../polymer/polymer.html">
     <link rel="import" href="../../test-fixture/test-fixture.html">
     <link rel="import" href="../deko-card.html">
@@ -24,6 +25,20 @@
         suite('test', function () {
           test('test is running', function(done) {
             done()
+          })
+        })
+        suite('basic usage', function () {		
+          test('can be triggered with space', function(done) {		
+            dekoCard.addEventListener('keydown', function() {		
+              done()		
+            })		
+            MockInteractions.pressSpace(dekoCard)		
+          })		
+          test('can be clicked', function(done) {		
+            dekoCard.addEventListener('click', function() {		
+              done()		
+            })		
+            MockInteractions.tap(dekoCard)		
           })
         })
       })
