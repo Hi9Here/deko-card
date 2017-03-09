@@ -1,8 +1,9 @@
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../paper-material/paper-material.html">
 <link rel="import" href="../paper-toolbar/paper-toolbar.html">
-<link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+
 <!--
   `<deko-card></deko-card>`
   @demo demo.html
@@ -68,6 +69,8 @@
         var outputType
         if (card.outputType) {
           outputType = card.outputType
+        } else if (card.cardType) {
+          outputType = card.cardType
         } else {
           outputType = "link-display"  
         }
