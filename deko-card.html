@@ -37,7 +37,6 @@
       </paper-toolbar>
       <div inner-h-t-m-l="[[getHtml(card,edit)]]"></div>
      </paper-material>
-    
   </template>
 </dom-module>
 <script>
@@ -98,7 +97,7 @@
             
             if (attr ) {
             }
-            outAttrs = outAttrs + " " + attr.replace("_","") + "='" + theString + "' " 
+            outAttrs = outAttrs + " " + attr.split("_").join("") + "='" + theString + "' " 
           }
         }
         output = "<"+ outputType + outAttrs + " >" + outputContent + "</"+ outputType + ">"
