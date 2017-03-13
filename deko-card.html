@@ -94,11 +94,11 @@
             } else {
               theString = card[attr] + ""
             }
-            outputContent = outputContent.replace(re, card[attr])
+            outputContent = outputContent.replace(re, card[attr] )
             
             if (attr ) {
             }
-            outAttrs = outAttrs + " " + attr + "='" + theString + "' " 
+            outAttrs = outAttrs + " " + attr.replace("_","") + "='" + theString + "' " 
           }
         }
         output = "<"+ outputType + outAttrs + " >" + outputContent + "</"+ outputType + ">"
