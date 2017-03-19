@@ -8,8 +8,8 @@
   `deko-card`
 
 
-  
-  @demo demo.html
+
+  @demo demo/index.html
 -->
 
 <dom-module id="deko-card">
@@ -47,13 +47,26 @@
   Polymer({
     is: "deko-card",
     properties:{
+      /**
+         * If true, the edit button appears.
+      */
       edit:{
         type:Boolean,
         value:false,
       },
+      /**
+         * What icons appears in the card. This referes to the type of content. For example the link card's icon is bookmark.
+      */
       icon:{
         type:String,
         value:"bookmark",
+      },
+      /**
+         * Refers to the color of the toolbar. These are based on material design color schemes.
+      */
+      color:{
+        type:String,
+        value:"red"
       },
       card:Object,
     },

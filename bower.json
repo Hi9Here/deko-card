@@ -14,7 +14,8 @@
     "iron-icons": "PolymerElements/iron-icons",
     "paper-toolbar": "PolymerElements/paper-toolbar",
     "paper-material": "PolymerElements/paper-material",
-    "iron-component-page": "PolymerElements/iron-component-page#^1.1.8"
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.8",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.5"
   },
   "devDependencies": {
     "web-component-tester": "^5.0.0",
