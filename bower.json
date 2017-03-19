@@ -13,10 +13,11 @@
     "iron-icon": "PolymerElements/iron-icon",
     "iron-icons": "PolymerElements/iron-icons",
     "paper-toolbar": "PolymerElements/paper-toolbar",
-    "paper-material": "PolymerElements/paper-material"
+    "paper-material": "PolymerElements/paper-material",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.8"
   },
   "devDependencies": {
     "web-component-tester": "^5.0.0",
-    "iron-test-helpers":"*"
+    "iron-test-helpers": "*"
   }
 }
