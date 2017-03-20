@@ -36,10 +36,10 @@
         <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
         <div class="title" ></div>
         <template is="dom-if" if="{{edit}}">
-          <iron-icon id="edit" on-tap="openEdit" icon="more-vert" style="height:90%"></iron-icon>
+          <iron-icon id="edit" on-tap="_openEdit" icon="more-vert" style="height:90%"></iron-icon>
         </template>
       </paper-toolbar>
-      <div inner-h-t-m-l="[[getHtml(card,edit)]]"></div>
+      <div inner-h-t-m-l="[[_getHtml(card,edit)]]"></div>
      </paper-material>
   </template>
 </dom-module>
@@ -65,7 +65,7 @@
       // The card data
       card:Object,
     },
-    getHtml: function(card, edit){
+    _getHtml: function(card, edit){
       var output
       if (card._output) {
         output = card._output + ""
@@ -116,7 +116,7 @@
       }
       return output
     },
-    openEdit : function() {
+    _openEdit : function() {
       if (this.card) {
         this.fire("edit", this.card)
       }
