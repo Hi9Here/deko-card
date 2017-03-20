@@ -32,7 +32,7 @@
       }
     </style>
     <paper-material elevation="1">
-      <paper-toolbar style$="background:[[color]]">
+      <paper-toolbar style$="background:[[toolbarColor]]">
         <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
         <div class="title" ></div>
         <template is="dom-if" if="{{edit}}">
@@ -47,27 +47,22 @@
   Polymer({
     is: "deko-card",
     properties:{
-      /**
-         * If true, the edit button appears.
-      */
+      // If true, the edit button appears.
       edit:{
         type:Boolean,
         value:false,
       },
-      /**
-         * What icons appears in the card. This referes to the type of content. For example the link card's icon is bookmark.
-      */
+      // What icons appears in the card. This referes to the type of content. For example the link card's icon is bookmark.
       icon:{
         type:String,
         value:"bookmark",
       },
-      /**
-         * Refers to the color of the toolbar. These are based on material design color schemes.
-      */
-      color:{
+      // Refers to the color of the toolbar. These are based on material design color schemes.
+      toolbarColor:{
         type:String,
         value:"red"
       },
+      // The card data
       card:Object,
     },
     getHtml: function(card, edit){
