@@ -13,39 +13,35 @@
   <body>
     <test-fixture id="dekoCard">
       <template>
-        <deko-card icon="bookmark" color="grey"></deko-card> //add attributes
+        <deko-card icon="bookmark" color="red"></deko-card> //add attributes
       </template>
     </test-fixture>
     <script>
       suite('<deko-card>', function () {
-        var dekoCard;
+        var deko;
         setup(function () {
-          dekoCard = fixture('dekoCard');
+          deko = fixture('dekoCard');
         });
-// This test is just to show that tests are running
-        suite('test', function () {
-          test('test is running', function(done) {
-            done()
-          })
-        })
 
-// These tests assert whether somthing is there
+// These tests assert whether the attributes are working
         suite('deko-app tests', function() {
         var home;
 
-          setup(function() {
-            home = fixture('dekoCard');
+          test('paper-toolbar iron-icon has a value of bookmark', function() {
+            var cardicon = Polymer.dom(deko.root).querySelector('paper-toolbar iron-icon');
+            assert.equal(cardicon.icon, "bookmark");
           });
 
-          test('paper-toolbar iron-icon has a value of bookmark', function() {
-            var icon = Polymer.dom(home.root).querySelector('paper-toolbar iron-icon');
-            assert.equal(icon.icon, "bookmark");
+          test('paper-toolbar has a color with a value of red', function() {
+            var toolbr = Polymer.dom(deko.root).querySelector('paper-toolbar');
+            assert.equal(toolbr.color, "red");
           });
 
         });
 
 // These test allow you to interact with the element
-        suite('basic usage', function () {		
+        suite('basic usage', function () {
+		
           test('can be triggered with space', function(done) {		
             dekoCard.addEventListener('keydown', function() {		
               done()		
