@@ -13,49 +13,48 @@
   <body>
     <test-fixture id="dekoCard">
       <template>
-        <deko-card icon="bookmark" toolbar-color="green" edit="true"></deko-card>
+        <deko-card icon="bookmark" toolbar-color="red" edit></deko-card>
       </template>
     </test-fixture>
     <script>
       suite('<deko-card>', function () {
-        var deko;
+        var dekoCard;
         setup(function () {
-          deko = fixture('dekoCard');
+          dekoCard = fixture('dekoCard');
         });
 
 // These tests assert whether the attributes are working
         suite('deko-app tests', function() {
 
           test('paper-toolbar iron-icon has a value of bookmark', function() {
-            var cardicon = Polymer.dom(deko.root).querySelector('iron-icon');
+            var cardicon = Polymer.dom(dekoCard.root).querySelector('iron-icon');
             assert.equal(cardicon.icon, "bookmark");
           });
 
           test('paper-toolbar has a color with a value of red', function() {
-            var toolbr = Polymer.dom(deko.root).querySelector('paper-toolbar');
-            assert.equal(toolbr.style.backgroundColor, "green");
+            var toolbr = Polymer.dom(dekoCard.root).querySelector('paper-toolbar');
+            assert.equal(toolbr.style.backgroundColor, "red");
+          });
+
+          test('edit button is showing', function() {
+            var editbutt = Polymer.dom(dekoCard.root).querySelector('paper-toolbar #edit');
+            assert.equal(editbutt.icon, "more-vert");
           });
 
         });
 
 // These test allow you to interact with the element
-        suite('basic usage', function () {
-		
-          test('can be triggered with space', function(done) {		
-            dekoCard.addEventListener('keydown', function() {		
+        suite('edit more tests', function () {
+			
+          test('edit button can be clicked when in edit mode', function(done) {	
+            var editbutton = Polymer.dom(dekoCard.root).querySelector('paper-toolbar #edit');
+            editbutton.addEventListener('click', function() {		
               done()		
             })		
-            MockInteractions.pressSpace(dekoCard)		
-          })		
-          test('can be clicked', function(done) {		
-            dekoCard.addEventListener('click', function() {		
-              done()		
-            })		
-            MockInteractions.tap(dekoCard)		
+            MockInteractions.tap(dekoCard.editbutton)		
           })
         })
       })
-
 
     </script>
   </body>
