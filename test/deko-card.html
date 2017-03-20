@@ -13,7 +13,7 @@
   <body>
     <test-fixture id="dekoCard">
       <template>
-        <deko-card icon="bookmark" color="green"></deko-card> //add attributes
+        <deko-card icon="bookmark" toolbar-color="green" edit="true"></deko-card>
       </template>
     </test-fixture>
     <script>
@@ -27,14 +27,13 @@
         suite('deko-app tests', function() {
 
           test('paper-toolbar iron-icon has a value of bookmark', function() {
-            var cardicon = Polymer.dom(deko.root).querySelector('paper-toolbar iron-icon');
+            var cardicon = Polymer.dom(deko.root).querySelector('iron-icon');
             assert.equal(cardicon.icon, "bookmark");
           });
 
           test('paper-toolbar has a color with a value of red', function() {
             var toolbr = Polymer.dom(deko.root).querySelector('paper-toolbar');
-            console.log(toolbr);
-            assert.equal(toolbr.style.backgroundColor, "red");
+            assert.equal(toolbr.style.backgroundColor, "green");
           });
 
         });
