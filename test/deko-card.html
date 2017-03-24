@@ -18,21 +18,25 @@
     </test-fixture>
     <script>
       suite('<deko-card>', function () {
-        var dekoCard;
+        var deko;
         setup(function () {
-          dekoCard = fixture('dekoCard');
+          deko = fixture('dekoCard');
         });
 
 // These tests assert whether the attributes are working
         suite('deko-app tests', function() {
 
+          test('instantiating the element works', function() {
+            assert.equal(deko.is, 'deko-card');
+          });
+
           test('paper-toolbar iron-icon has a value of bookmark', function() {
-            var cardicon = Polymer.dom(dekoCard.root).querySelector('iron-icon');
+            var cardicon = Polymer.dom(deko.root).querySelector('iron-icon');
             assert.equal(cardicon.icon, "bookmark");
           });
 
           test('paper-toolbar has a color with a value of red', function() {
-            var toolbr = Polymer.dom(dekoCard.root).querySelector('paper-toolbar');
+            var toolbr = Polymer.dom(deko.root).querySelector('paper-toolbar');
             assert.equal(toolbr.style.backgroundColor, "red");
           });
 
