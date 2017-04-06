@@ -33,7 +33,7 @@
         <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
         <div class="title" ></div>
         <template is="dom-if" if="{{edit}}">
-          <iron-icon id="edit" on-tap="_openOptions" icon="more-vert" style="height:90%"></iron-icon>
+          <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
         </template>
       </paper-toolbar>
       <div inner-h-t-m-l="[[_getHtml(card,edit)]]"></div>
@@ -107,7 +107,7 @@
       }
       return output
     },
-    _openOptions : function() {
+    openoptions: function() {
       if (this.card) {
         this.fire("open-options", this.card)
       }
