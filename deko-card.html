@@ -29,7 +29,7 @@
       }
     </style>
     <paper-material elevation="1">
-      <paper-toolbar style$="background:[[toolbarColor]]">
+      <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
         <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
         <div class="title" ></div>
         <template is="dom-if" if="{{edit}}">
@@ -53,6 +53,14 @@
       icon:String,
       // Refers to the color of the toolbar. These are based on material design color schemes.
       toolbarColor:String,
+      _bg:{
+        type:String,
+        computed:"getBg(toolbarColor)",
+      },
+      _fg:{
+        type:String,
+        computed:"getFg(_bg)",
+      },
       // This is what is displayed before it is used.
       card:Object,
     },
@@ -111,6 +119,22 @@
       if (this.card) {
         this.fire("open-options", this.card)
       }
-    }
+    },
+    getBg: function(color){
+      return color || Please.make_color({from_hash: this.innerText})
+    },
+    getFg: function(bg){
+      var c = bg.substring(1);     // strip #
+      var rgb = parseInt(c, 16);   // convert rrggbb to decimal
+      var r = (rgb >> 16) & 0xff;  // extract red
+      var g = (rgb >>  8) & 0xff;  // extract green
+      var b = (rgb >>  0) & 0xff;  // extract blue
+      var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+      if (luma > 128) {
+        return "#000"
+      } else {
+        return "#FFF"
+      }
+    },
   })
 </script>
