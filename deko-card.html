@@ -1,8 +1,9 @@
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../paper-material/paper-material.html">
 <link rel="import" href="../paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-media-query/iron-media-query.html">
 
 <!--
   `deko-card`
@@ -15,29 +16,52 @@
       paper-material {
         background-color: #fafafa;
         color: #212121;
-        height: 260px;
-        width: 200px;
+        height: var(--deko-card-height, 260px);
+        width: var(--deko-card-width, 200px);
         display: inline-block;
         margin: 5px;
         overflow: hidden;
         cursor: pointer; 
         cursor: hand;
       }
+      paper-material.mobile {
+        height: var(--deko-card-sm-height, calc(100% - 260px));
+        width: var(--deko-card-sm-width, 100%);
+        box-shadow: 0 -2px 0px 0 rgba(0, 0, 0, 0.14), 0 -1px 0px 0 rgba(0, 0, 0, 0.12), 0 -3px 1px -2px rgba(0, 0, 0, 0.2);
+        margin: 0px 0px 0px 2px;
+      }
       paper-toolbar {
         --paper-toolbar-sm-height: 35px;
         --paper-toolbar-height: 35px;
       }
     </style>
-    <paper-material elevation="1">
-      <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
-        <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
-        <div class="title" ></div>
-        <template is="dom-if" if="{{edit}}">
-          <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
-        </template>
-      </paper-toolbar>
-      <div inner-h-t-m-l="[[_getHtml(card,edit)]]"></div>
-     </paper-material>
+    <iron-media-query query="(min-width: 700px)" query-matches="{{wide}}"></iron-media-query>
+    <!-- Desktop Layout -->
+    <template is="dom-if" if="{{wide}}">
+      <paper-material elevation="1">
+        <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
+          <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
+          <div class="title" ></div>
+          <template is="dom-if" if="{{edit}}">
+            <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
+          </template>
+        </paper-toolbar>
+        <div inner-h-t-m-l="[[_getHtml(card,edit)]]"></div>
+      </paper-material>
+    </template>
+    <!-- Mobile Layout -->
+    <template is="dom-if" if="{{!wide}}">
+      <paper-material class="mobile" elevation="1">
+        <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
+          <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
+          <div class="title" ></div>
+          <template is="dom-if" if="{{edit}}">
+            <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
+          </template>
+        </paper-toolbar>
+        <div inner-h-t-m-l="[[_getHtml(card,edit)]]"></div>
+      </paper-material>
+    </template>
   </template>
 </dom-module>
 <script>
