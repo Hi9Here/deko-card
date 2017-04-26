@@ -24,6 +24,12 @@
         cursor: pointer; 
         cursor: hand;
       }
+      paper-material.mobile {
+        height: var(--deko-card-sm-height, calc(100% - 260px));
+        width: var(--deko-card-sm-width, 100%);
+        box-shadow: 0 -2px 0px 0 rgba(0, 0, 0, 0.14), 0 -1px 0px 0 rgba(0, 0, 0, 0.12), 0 -3px 1px -2px rgba(0, 0, 0, 0.2);
+        margin: 0px 0px 0px 2px;
+      }
       paper-toolbar {
         --paper-toolbar-sm-height: 35px;
         --paper-toolbar-height: 35px;
@@ -45,7 +51,7 @@
     </template>
     <!-- Mobile Layout -->
     <template is="dom-if" if="{{!wide}}">
-      <paper-material elevation="1">
+      <paper-material class="mobile" elevation="1">
         <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
           <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
           <div class="title" ></div>
