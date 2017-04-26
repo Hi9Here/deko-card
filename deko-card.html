@@ -27,12 +27,17 @@
       paper-material.mobile {
         height: var(--deko-card-sm-height, calc(100% - 260px));
         width: var(--deko-card-sm-width, 100%);
-        box-shadow: 0 -2px 0px 0 rgba(0, 0, 0, 0.14), 0 -1px 0px 0 rgba(0, 0, 0, 0.12), 0 -3px 1px -2px rgba(0, 0, 0, 0.2);
         margin: 0px 0px 0px 2px;
+        box-shadow: 0 -2px 0px 0 rgba(0, 0, 0, 0.14),
+                    0 -1px 0px 0 rgba(0, 0, 0, 0.12),
+                    0 -3px 1px -2px rgba(0, 0, 0, 0.2);
       }
       paper-toolbar {
         --paper-toolbar-sm-height: 35px;
         --paper-toolbar-height: 35px;
+        box-shadow: 0 -2px 0px 0 rgba(0, 0, 0, 0.14),
+                    0 -1px 0px 0 rgba(0, 0, 0, 0.12),
+                    0 -3px 1px -2px rgba(0, 0, 0, 0.2);
       }
     </style>
     <iron-media-query query="(min-width: 700px)" query-matches="{{wide}}"></iron-media-query>
