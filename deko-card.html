@@ -1,9 +1,9 @@
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../iron-media-query/iron-media-query.html">
 <link rel="import" href="../paper-material/paper-material.html">
 <link rel="import" href="../paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../iron-media-query/iron-media-query.html">
 
 <!--
   `deko-card`
@@ -84,11 +84,11 @@
       toolbarColor:String,
       _bg:{
         type:String,
-        computed:"getBg(toolbarColor)",
+        computed:"getBg(toolbarColor)",notify:true,
       },
       _fg:{
         type:String,
-        computed:"getFg(_bg)",
+        computed:"getFg(_bg)",notify:true,
       },
       // This is what is displayed before it is used.
       card:Object,
