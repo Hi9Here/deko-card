@@ -92,6 +92,7 @@
       },
       // This is what is displayed before it is used.
       card:Object,
+      deck:String,
     },
     _getHtml: function(card, edit){
       var output
@@ -135,9 +136,10 @@
             }
             outputContent = outputContent.replace(re, card[attr] )
             
-            if (attr ) {
+            if (attr) {
+              
             }
-            outAttrs = outAttrs + " " + attr.split("_").join("") + "='" + theString + "' " 
+            outAttrs = outAttrs + " " + "deck=" + this.deck + " " + attr.split("_").join("") + "='" + theString + "' " 
           }
         }
         output = "<"+ outputType + outAttrs + " >" + outputContent + "</"+ outputType + ">"
