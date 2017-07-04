@@ -64,7 +64,7 @@
             <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
           </template>
         </paper-toolbar>
-        <div inner-h-t-m-l="[[_getHtml(card,edit)]]"></div>
+        <div inner-h-t-m-l="[[_getHtml(card,edit,deck)]]"></div>
       </paper-material>
     </template>
   </template>
@@ -94,7 +94,7 @@
       card:Object,
       deck:String,
     },
-    _getHtml: function(card, edit){
+    _getHtml: function(card, edit, deck){ if (deck) {
       var output
       if (card._output) {
         output = card._output + ""
@@ -146,7 +146,7 @@
         output = "<"+ outputType + " deck=" + this.deck + " " + outAttrs + " >" + outputContent + "</"+ outputType + ">"
       }
       return output
-    },
+    } },
     openoptions: function() {
       if (this.card) {
         this.fire("open-options", this.card)
