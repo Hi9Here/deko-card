@@ -112,7 +112,7 @@
         } else if (card.cardType) {
           outputType = card.cardType
         } else {
-          outputType = "link-display"  
+          outputType = "content-card"  
         }
         var outputContent
         if (card.content) {
@@ -123,6 +123,7 @@
         var outAttrs = ""
         if (edit) {
           outAttrs = " edit"
+          outputType = outputType.split("-")[0] + "-edit"
         }
         for (var attr in card) {
           if (attr !== "_data" || attr !== "output") {
@@ -136,13 +137,13 @@
             }
             outputContent = outputContent.replace(re, card[attr] )
             
-            if (attr) {
-              
+            if (attr == "opened" && !edit) {
+              outputType = outputType.split("-")[0] + "-view"
             }
-            outAttrs = outAttrs + " " + "deck=" + this.deck + " " + attr.split("_").join("") + "='" + theString + "' " 
+            outAttrs = outAttrs + " " + attr.split("_").join("") + "='" + theString + "' " 
           }
         }
-        output = "<"+ outputType + outAttrs + " >" + outputContent + "</"+ outputType + ">"
+        output = "<"+ outputType + "deck=" + this.deck + " " + outAttrs + " >" + outputContent + "</"+ outputType + ">"
       }
       return output
     },
