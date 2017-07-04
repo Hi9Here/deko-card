@@ -140,10 +140,10 @@
             if (attr == "opened" && !edit) {
               outputType = outputType.split("-")[0] + "-view"
             }
-            outAttrs = outAttrs + " " + attr.split("_").join("") + "='" + theString + "' " 
+            outAttrs = outAttrs + attr.split("_").join("") + "='" + theString + "' " 
           }
         }
-        output = "<"+ outputType + "deck=" + this.deck + " " + outAttrs + " >" + outputContent + "</"+ outputType + ">"
+        output = "<"+ outputType + " deck=" + this.deck + " " + outAttrs + " >" + outputContent + "</"+ outputType + ">"
       }
       return output
     },
