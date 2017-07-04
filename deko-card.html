@@ -136,10 +136,7 @@
               theString = card[attr] + ""
             }
             outputContent = outputContent.replace(re, card[attr] )
-            
-            if (attr == "opened" && !edit) {
-              outputType = outputType.split("-")[0] + "-view"
-            }
+
             outAttrs = outAttrs + attr.split("_").join("") + "='" + theString + "' " 
           }
         }
