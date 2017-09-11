@@ -46,8 +46,8 @@
       <paper-material elevation="1">
         <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
           <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
-          <div class="title" ></div>
-          <template is="dom-if" if="{{edit}}">
+          <div class="title" >[[title]]</div>
+          <template is="dom-if" if="[[edit]]">
             <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
           </template>
         </paper-toolbar>
@@ -59,7 +59,7 @@
       <paper-material class="mobile" elevation="1">
         <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
           <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
-          <div class="title" ></div>
+          <div class="title" >[[title]]</div>
           <template is="dom-if" if="{{edit}}">
             <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
           </template>
