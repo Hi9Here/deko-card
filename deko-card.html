@@ -92,28 +92,21 @@
         type:String,
         computed:"getFg(_bg)",
       },
-      _img: {
-        computed:"setValue(ref,'image')",
+      _getData: {
+        computed:"setValues(ref)",
       },
-      _title :{
-        computed:"setValue(ref,'title')",
-      },
-      _description: {
-        computed:"setValue(ref,'description')",
-      },
-      unsub:{
-        value: {},
-      }
     },
-    setValue: function(ref, value){
+    setValues: function(ref){
       var that = this
-      if (this.unsub[value]) {
-        this.unsub[value]()
+      if (this.unsub) {
+        this.unsub()
       }
-      if (ref && value) {
-        this.unsub[value] = ref.collection(value).orderBy("time").limit(1).onSnapshot(function(doc) {
+      if (ref) {
+        this.unsub = ref.onSnapshot(function(doc) {
           if (doc) {
-            that.set( value, doc.data().value)
+            that.set( "image", doc.data().image)
+            that.set( "title", doc.data().title)
+            that.set( "description", doc.data().description)
           }
         })
       }
