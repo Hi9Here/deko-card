@@ -51,7 +51,9 @@
             <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
           </template>
         </paper-toolbar>
-        <div inner-h-t-m-l="[[_getHtml(card,edit,deck)]]"></div>
+        <img src="[[img]]"/>
+        <h3>[[title]]</h3>
+        <p>[[description]]</p>
       </paper-material>
     </template>
     <!-- Mobile Layout -->
@@ -59,12 +61,14 @@
       <paper-material class="mobile" elevation="1">
         <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
           <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
-          <div class="title" >[[title]]</div>
+          <div class="title" ></div>
           <template is="dom-if" if="{{edit}}">
             <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
           </template>
         </paper-toolbar>
-        <div inner-h-t-m-l="[[_getHtml(card,edit,deck)]]"></div>
+        <img src="[[image]]"/>
+        <h3>[[title]]</h3>
+        <p>[[description]]</p>
       </paper-material>
     </template>
   </template>
@@ -78,78 +82,44 @@
         type:Boolean,
         value:false,
       },
-      // What icons appears in the card. This referes to the type of content. For example the link card's icon is bookmark.
       icon:String,
-      // Refers to the color of the toolbar. These are based on material design color schemes.
       toolbarColor:String,
       _bg:{
         type:String,
-        computed:"getBg(toolbarColor)",notify:true,
+        computed:"getBg(toolbarColor,title)",
       },
       _fg:{
         type:String,
-        computed:"getFg(_bg)",notify:true,
+        computed:"getFg(_bg)",
       },
-      // This is what is displayed before it is used.
-      card:Object,
-      deck:String,
-    },
-    _getHtml: function(card, edit, deck){ if (deck) {
-      var output
-      if (card._output) {
-        output = card._output + ""
-        for (var attr in card) {
-          if (attr !== "_data" || attr !== "_output") {
-            //replace {{}}
-            re = new RegExp("{{"+attr+"}}", "gim")
-            output = output.replace(re, card[attr])
-          }
-        }
-      } else {
-        var outputType
-        if (card.outputType) {
-          outputType = card.outputType
-        } else if (card.cardType) {
-          outputType = card.cardType
-        } else {
-          outputType = "content-card"  
-        }
-        var outputContent
-        if (card.content) {
-          outputContent = card.content
-        } else {
-          outputContent = ""
-        }
-        var outAttrs = ""
-        if (edit) {
-          outAttrs = " edit"
-        }
-        for (var attr in card) {
-          if (attr !== "_data" || attr !== "output") {
-            //replace {{}}
-            re = new RegExp("{{"+attr+"}}", "gim")
-            var theString
-            if (typeof card[attr] === 'object') {
-              theString =  JSON.stringify(card[attr] )
-            } else {
-              theString = card[attr] + ""
-            }
-            outputContent = outputContent.replace(re, card[attr] )
-
-            outAttrs = outAttrs + attr.split("_").join("") + "='" + theString + "' " 
-          }
-        }
-        output = "<"+ outputType + " deck=" + this.deck + " " + outAttrs + " >" + outputContent + "</"+ outputType + ">"
-      }
-      return output
-    } },
-    openoptions: function() {
-      if (this.card) {
-        this.fire("open-options", this.card)
+      _img: {
+        computed:"setValue(ref,'image')",
+      },
+      _title :{
+        computed:"setValue(ref,'title')",
+      },
+      _description: {
+        computed:"setValue(ref,'description')",
+      },
+      unsub:{
+        value: {},
       }
     },
-    getBg: function(color){
-      return color || Please.make_color({from_hash: this.innerText})
+    setValue: function(ref, value){
+      var that = this
+      if (this.unsub[value]) {
+        this.unsub[value]()
+      }
+      if (ref && value) {
+        this.unsub[value] = ref.collection(value).orderBy("time").limit(1).onSnapshot(function(doc) {
+          if (doc) {
+            that.set( value, doc.data().value)
+          }
+        })
+      }
+    },
+    getBg: function(color, title){
+      return color || Please.make_color({from_hash: title})
     },
     getFg: function(bg){
       var c = bg.substring(1);     // strip #
