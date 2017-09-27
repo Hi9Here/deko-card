@@ -69,7 +69,7 @@
             <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
           </template>
         </paper-toolbar>
-        <img src="[[image]]" style="width: 100%;" />
+        <img src="[[bigImage]]" style="width: 100%;" />
         <h3>[[title]]</h3>
         <p>[[description]]</p>
       </paper-material>
@@ -110,14 +110,19 @@
             if (that.unsubImage) {
               that.unsubImage()
             }
-            that.unsubImage = ref.collection("image").orderBy("time").limit(1).onSnapshot(function(image) {
+            var getSize = "image"
+            if (!this.wide) {
+              getSize = "big image"
+            }
+            that.unsubImage = ref.collection(getSize).orderBy("time").limit(1).onSnapshot(function(image) {
               if (image && image.size) {
-                that.set( "image", image.docs[0].data().value)
+                that.set("image", image.docs[0].data().value)
               } else {
                 that.set("image", "")
               }
             })
-            that.set( "title", doc.data().title)
+            that.set("title", doc.data().title)
+            
             // that.set( "description", doc.data().description)
           }
         })
