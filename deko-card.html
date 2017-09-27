@@ -48,12 +48,12 @@
       <paper-material elevation="1">
         <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
           <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
-          <div class="title" >[[title]]</div>
+          <div class="title" ></div>
           <template is="dom-if" if="[[edit]]">
             <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
           </template>
         </paper-toolbar>
-        <img src="[[image]]" />
+        <img src="[[image]]" style="width: 100%;" />
         <h3>[[title]]</h3>
         <p>[[description]]</p>
       </paper-material>
@@ -68,7 +68,7 @@
             <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
           </template>
         </paper-toolbar>
-        <img src="[[image]]"/>
+        <img src="[[image]]" style="width: 100%;" />
         <h3>[[title]]</h3>
         <p>[[description]]</p>
       </paper-material>
