@@ -3,9 +3,7 @@
 <link rel="import" href="../paper-material/paper-material.html">
 <link rel="import" href="../paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
-<link rel="import" href="../iron-icon/iron-icon.html">  
-
-<script src="../JavaScript-Load-Image/js/load-image.all.min.js"></script>
+<link rel="import" href="../iron-icon/iron-icon.html">
 
 <!--
   `deko-card`
@@ -56,7 +54,9 @@
         </paper-toolbar>
         <img src="[[image]]" style="width: 100%;" />
         <h3>[[title]]</h3>
-        <p>[[description]]</p>
+        <template is="dom-if" if="[[!image]]">
+          <p>[[description]]</p>
+        </template>
       </paper-material>
     </template>
     <!-- Mobile Layout -->
