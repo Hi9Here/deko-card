@@ -62,7 +62,7 @@
     <!-- Mobile Layout -->
     <template is="dom-if" if="{{!wide}}">
       <paper-material class="mobile" elevation="1">
-        <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
+        <paper-toolbar style$="min-width: 400px;background:[[_bg]];color:[[_fg]]">
           <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
           <div class="title" ></div>
           <template is="dom-if" if="{{edit}}">
