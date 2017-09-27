@@ -112,6 +112,8 @@
             that.unsubImage = ref.collection("image").orderBy("time").limit(1).onSnapshot(function(image) {
               if (image && image.size) {
                 that.set( "image", image.docs[0].data().value)
+              } else {
+                that.set("image", "")
               }
             })
             that.set( "title", doc.data().title)
