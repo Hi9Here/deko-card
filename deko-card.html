@@ -106,7 +106,7 @@
       }
       if (ref) {
         this.unsub = ref.onSnapshot(function(doc) {
-          if (doc) {
+          if (doc && doc.exists) {
             if (that.unsubImage) {
               that.unsubImage()
             }
@@ -120,10 +120,15 @@
               } else {
                 that.set("image", "")
               }
+              if (!image.exists){
+                that.unsubImage()
+              }
             })
             that.set("title", doc.data().title)
             
             // that.set( "description", doc.data().description)
+          } else {
+            this.unsub()
           }
         })
       }
