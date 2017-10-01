@@ -8,7 +8,7 @@
     "web-components"
   ],
   "dependencies": {
-    "polymer": "polymer/polymer#~1.7.1",
+    "polymer": "polymer/polymer#~1.10.0",
     "iron-flex-layout": "PolymerElements/iron-flex-layout",
     "iron-icon": "PolymerElements/iron-icon",
     "iron-icons": "PolymerElements/iron-icons",
@@ -16,7 +16,8 @@
     "paper-material": "PolymerElements/paper-material",
     "iron-component-page": "PolymerElements/iron-component-page#^1.1.8",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.5",
-    "iron-media-query": "PolymerElements/iron-media-query#^1.0.8"
+    "iron-media-query": "PolymerElements/iron-media-query#^1.0.8",
+    "paper-spinner": "PolymerElements/paper-spinner#~1.2.1"
   },
   "devDependencies": {
     "web-component-tester": "^5.0.0",
