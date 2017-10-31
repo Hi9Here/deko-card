@@ -146,7 +146,7 @@
             var data = doc.data()
             that.set("title", data.title)
             that.set("image", data.image)
-            that.set("description", data.text.replace(new RegExp("/^" + data.title + "/",i),''))
+            that.set("description", data.text.replace(new RegExp("/^" + data.title + "/","i"),''))
           } else if (doc.exists) {
             that.unsub() 
           }
