@@ -143,26 +143,12 @@ footer{
       if (ref) {
         this.unsub = ref.onSnapshot(function(doc) {
           if (doc && doc.exists) {
-            if (that.unsubImage) {
-              that.unsubImage()
-            }
-            var getSize = "image"
-            if (!this.wide) {
-              getSize = "big image"
-            }
-            that.unsubImage = ref.collection(getSize).orderBy("time", "desc").limit(1).onSnapshot(function(image) {
-              if (image && image.size) {
-                that.set("image", image.docs[0].data().value)
-              } else {
-                that.set("image", "")
-              }
-            })
-            that.set("title", doc.data().title)
+            var data = doc.data()
+            that.set("title", data.title)
+            that.set("image", data.image)
             
-            // that.set( "description", doc.data().description)
           } else if (doc.exists) {
             that.unsub() 
-            that.unsubImage()
           }
         })
       }
