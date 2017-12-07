@@ -83,13 +83,12 @@
       <paper-material elevation="1">
         <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
           <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
-          <div class="title" ></div>
+          <div class="title" >[[title]]</div>
           <template is="dom-if" if="[[edit]]">
             <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
           </template>
         </paper-toolbar>
         <img src="[[image]]" style="max-width:100%;max-height:50%;" />
-        <h3>[[title]]</h3>
         <template is="dom-if" if="[[!image]]">
           <p>[[description]]</p>
         </template>
@@ -100,13 +99,12 @@
       <paper-material class="mobile" elevation="1">
         <paper-toolbar style$="min-width: 400px;background:[[_bg]];color:[[_fg]]">
           <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
-          <div class="title" ></div>
+          <div class="title">[[title]]</div>
           <template is="dom-if" if="{{edit}}">
             <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
           </template>
         </paper-toolbar>
         <img src="[[image]]" style="max-width:100%;max-height:50%;" />
-        <h3>[[title]]</h3>
         <p>[[description]]</p>
       </paper-material>
     </template>
