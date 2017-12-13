@@ -81,7 +81,7 @@
     </style>
     <iron-media-query query="(min-width: 700px)" query-matches="{{wide}}"></iron-media-query>
     <!-- Desktop Layout -->
-    <template is="dom-if" if="{{wide}}">
+    <template is="dom-if" if="[[wide]]">
       <paper-material elevation="1">
         <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
           <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
@@ -92,7 +92,7 @@
       </paper-material>
     </template>
     <!-- Mobile Layout -->
-    <template is="dom-if" if="{{!wide}}">
+    <template is="dom-if" if="[[!wide]]">
       <paper-material class="mobile" elevation="1">
         <paper-toolbar style$="min-width: 400px;background:[[_bg]];color:[[_fg]]">
           <iron-icon icon="[[icon]]" style="height:90%"></iron-icon>
@@ -111,16 +111,11 @@
   Polymer({
     is: "deko-card",
     properties: {
-      // If true, the edit button appears.
-      edit:{
-        type:Boolean,
-        value:false,
-      },
       icon:String,
       toolbarColor:String,
       _bg: {
         type:String,
-        computed:"getBg(card.toolbarColor,title)",
+        computed:"getBg(card.toolbarColor, card.title)",
       },
       _fg: {
         type:String,
