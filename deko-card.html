@@ -115,15 +115,15 @@
     <template is="dom-if" if="[[wide]]">
       <paper-material elevation="1">
         <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
-          <div class="title" >[[card.title]]</div>
+          <div class="title"></div>
           <iron-icon icon="[[icon]]" style="height:90%;display:none"></iron-icon>
         </paper-toolbar>
         <img src="[[card.image]]"/>
-        <p>[[card.text]]</p>
+        <p>[[card.title]]</p>
       </paper-material>
     </template>
-  <!-- Mobile Layout -->
-  <template is="dom-if" if="[[!wide]]">
+    <!-- Mobile Layout -->
+    <template is="dom-if" if="[[!wide]]">
       <paper-material class="mobile" elevation="1">
         <paper-toolbar style$="min-width: 400px;background:[[_bg]];color:[[_fg]]">
           <div class="title">[[card.title]]</div>
@@ -131,11 +131,11 @@
           <!-- <template is="dom-if" if="{{edit}}">
             <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
           </template> -->
-  </paper-toolbar>
-  <img class="mobile" src="[[card.image]]" />
-  <p class="mobile">[[card.text]]</p>
-  </paper-material>
-  </template>
+        </paper-toolbar>
+        <img class="mobile" src="[[card.image]]" />
+        <p class="mobile">[[card.text]]</p>
+      </paper-material>
+    </template>
   </template>
 </dom-module>
 <script>
