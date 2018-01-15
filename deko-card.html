@@ -1,7 +1,4 @@
-<!-- <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html"> -->
-<link rel="import" href="../iron-media-query/iron-media-query.html">
 <link rel="import" href="../paper-material/paper-material.html">
-<link rel="import" href="../paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 
@@ -13,12 +10,12 @@
 <dom-module id="deko-card">
   <template>
     <style>
-      /* :host {display:block} */
+      :host {display:inline-block}
       paper-material {
         background-color: #fafafa;
         color: #212121;
-        height: 280px;
-        width: 200px;
+        height: 100%;
+        width: 100%;
         /* display: inline-block; */
         margin: 5px;
         overflow: hidden;
@@ -26,116 +23,10 @@
         cursor: hand;
         border-radius: 7px;
       }
-      paper-material.mobile {
-        background-color: #fff;
-        width: var(--deko-card-width-mobile, 100%);
-        margin: 0;
-        box-shadow: 0 -2px 0px 0 rgba(0, 0, 0, 0.14),
-                    0 -1px 0px 0 rgba(0, 0, 0, 0.12),
-                    0 -3px 1px -2px rgba(0, 0, 0, 0.2);
-        height: 450px;
-      }
-      paper-toolbar {
-        --paper-toolbar-sm-height: 40px;
-        --paper-toolbar-height: 40px;
-        --paper-toolbar-title: {
-          height: 20px;
-          /* font-family: "Open Sans", sans-serif; */
-          /* -webkit-font-smoothing: antialiased; */
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: clip;
-          font-size: 1.2em;
-          font-weight: 300;
-          /* line-height: 1; */
-          pointer-events: none;
-          /* -ms-flex: 1 1 0.000000001px; */
-          /* -webkit-flex: 1; */
-          /* flex: 1; */
-          /* -webkit-flex-basis: 0.000000001px; */
-          /* flex-basis: 0.000000001px; */
-          padding: 0;
-        }
-      }
-      img {
-        margin: 0 auto;
-        display: grid;
-        object-fit: cover;
-        width: 100%;
-        height: 140px;
-      }
-      img.mobile {
-        height: 270px;
-      }
-      p {
-        font-weight: 300;
-        font-size: 1em;
-      }
-      p.mobile {
-        font-size: 1.4em;
-        padding: 0px 15px 0px 15px;
-      }
-      /* card {
-        max-width:100%;
-        min-height:70px;
-        border-radius: 10px 10px 0 0;
-        display: block;
-        margin: 0 0 -17px;
-        border-left: 1px solid #000;
-        border-right: 1px solid #000;
-      } */
-      /* heading {
-        border-radius: 10px 10px 0 0;
-        background-color: #444;
-        color: #fff;
-        font-size: 150%;
-        display: block;
-        padding: 10px;
-        border-top: 1px solid #000;
-        border-left: 1px solid #000;
-        border-right: 1px solid #000;
-        margin:-1px -1px 0 
-      }
-      footer {
-        border-radius: 0 0 10px 10px;
-        color: #fff;
-        display: block;
-        padding: 5px;
-        margin: 0 -1px -10px;
-        border-bottom: 1px solid #000;
-        border-left:   1px solid #000;
-        border-right:  1px solid #000;
-      }
-      .title {
-        margin-left: none;
-      } */
     </style>
-    <iron-media-query query="(min-width: 700px)" query-matches="{{wide}}"></iron-media-query>
-    <!-- Desktop Layout -->
-    <template is="dom-if" if="[[wide]]">
-      <paper-material elevation="1">
-        <paper-toolbar style$="background:[[_bg]];color:[[_fg]]">
-          <div class="title"></div>
-          <iron-icon icon="[[icon]]" style="height:90%;display:none"></iron-icon>
-        </paper-toolbar>
-        <img src="[[card.image]]"/>
-        <p>[[card.title]]</p>
-      </paper-material>
-    </template>
-    <!-- Mobile Layout -->
-    <template is="dom-if" if="[[!wide]]">
-      <paper-material class="mobile" elevation="1">
-        <paper-toolbar style$="min-width: 400px;background:[[_bg]];color:[[_fg]]">
-          <div class="title">[[card.title]]</div>
-          <iron-icon icon="[[icon]]" style="height:90%; display:none;"></iron-icon>
-          <!-- <template is="dom-if" if="{{edit}}">
-            <iron-icon id="edit" on-tap="openoptions" icon="more-vert" style="height:90%"></iron-icon>
-          </template> -->
-        </paper-toolbar>
-        <img class="mobile" src="[[card.image]]" />
-        <p class="mobile">[[card.text]]</p>
-      </paper-material>
-    </template>
+    <paper-material elevation="1" style$="background:[[_bg]];color:[[_fg]]">
+      [[card.html]]
+    </paper-material>
   </template>
 </dom-module>
 <script>
