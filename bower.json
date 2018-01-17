@@ -8,6 +8,7 @@
     "web-components"
   ],
   "dependencies": {
+    "please-js": "marcus7777/please-js",
     "polymer": "polymer/polymer#~1.10.0",
     "iron-flex-layout": "PolymerElements/iron-flex-layout",
     "iron-icon": "PolymerElements/iron-icon",
