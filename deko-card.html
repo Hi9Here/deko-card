@@ -12,17 +12,23 @@
   <template>
     <style>
       /* .71 *280  */
-      :host {min-height:280px;min-width:198px;display:inline-block}
-      paper-material {
+      :host {min-height:280px;min-width:198px;display:inline-block;position:relative;}
+      :host:before {
+         display: block;
+         content: " ";
+         width: 100%;
+         padding-top: 140%;
+      }
+      :host > paper-material {
         background-color: #fafafa;
         color: #212121;
-        height: 100%;
-        width: 100%;
         margin: 5px;
-        overflow: hidden;
-        cursor: pointer;
-        cursor: hand;
         border-radius: 7px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
       }
     </style>
     <paper-material elevation="1" style$="background:[[_bg]];color:[[_fg]]">
