@@ -29,10 +29,12 @@
         color: #212121;
         border-radius: 7px;
         position: absolute;
+      }
+      .open {
         overflow: scroll;
       }
     </style>
-    <paper-material elevation="2" style$="background:[[_bg]];color:[[_fg]]">
+    <paper-material elevation="2" class$="[[display]]" style$="background:[[_bg]];color:[[_fg]]" >
       <div inner-h-t-m-l="[[card.html]]"></div>
     </paper-material>
   </template>
