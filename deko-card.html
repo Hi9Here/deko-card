@@ -57,9 +57,18 @@
         background-color: #fff6;
       }
     </style>
-    <paper-material elevation="2" class$="[[display]]" style$="background:[[_bg]];color:[[_fg]]">
-      <slot></slot><content></content>
-    </paper-material>
+    <template is="dom-if" if="[[card.selected]]">
+      <a href="[[href]]">
+        <paper-material elevation="2" class$="[[display]]" style$="background:[[_bg]];color:[[_fg]]">
+          <slot></slot><content></content>
+        </paper-material>
+      </a>
+    </template>
+    <template is="dom-if" if="[[!card.selected]]">
+      <paper-material elevation="2" class$="[[display]]" style$="background:[[_bg]];color:[[_fg]]">
+        <slot></slot><content></content>
+      </paper-material>
+    </template>
   </template>
 </dom-module>
 <script>
