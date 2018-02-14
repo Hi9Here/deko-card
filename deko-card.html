@@ -57,18 +57,11 @@
         background-color: #fff6;
       }
     </style>
-    <template is="dom-if" if="[[card.selected]]">
-      <a href="[[href]]">
-        <paper-material elevation="2" class$="[[display]]" style$="background:[[_bg]];color:[[_fg]]">
-          <slot></slot><content></content>
-        </paper-material>
-      </a>
-    </template>
-    <template is="dom-if" if="[[!card.selected]]">
+    <a href="[[_href]]">
       <paper-material elevation="2" class$="[[display]]" style$="background:[[_bg]];color:[[_fg]]">
         <slot></slot><content></content>
       </paper-material>
-    </template>
+    </a>
   </template>
 </dom-module>
 <script>
@@ -85,6 +78,16 @@
         type: String,
         computed: "getFg(_bg)",
       },
+      _href: {
+        computed: "getLink(card.selected,href)"
+      },
+    },
+    getLink: function(selected,href) {
+      if (selected) {
+        return href
+      } else {
+        return ""
+      }
     },
     getBg: function(color, title) {
       return color || Please.make_color({
