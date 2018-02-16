@@ -56,7 +56,7 @@
         background-color: #fff6;
       }
     </style>
-    <paper-material elevation="2" class$="[[display]]" style$="background:[[_bg]];color:[[_fg]]">
+    <paper-material elevation="2" class$="[[display]] [[tone]]" style$="background:[[_bg]];color:[[_fg]]">
       <slot></slot><content></content>
     </paper-material>
   </template>
@@ -92,8 +92,10 @@
       var b = (rgb >> 0) & 0xff; // extract blue
       var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
       if (luma > 128) {
+        this.tone = "light"
         return "#000"
       } else {
+        this.tone = "dark"
         return "#FFF"
       }
     },
