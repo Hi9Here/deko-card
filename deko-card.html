@@ -26,6 +26,29 @@
          width: 100%;
          padding-top: 140%;
       }
+      :host > paper-material.1 {
+        zoom: 1;
+      }
+
+      :host > paper-material.2 {
+        zoom: .8;
+      }
+
+      :host > paper-material.3 {
+        zoom: .7;
+      }
+
+      :host > paper-material.4 {
+        zoom: .6;
+      }
+
+      :host > paper-material.5 {
+        zoom: .5;
+      }
+
+      :host > paper-material.6 {
+        zoom: .4;
+      }
       :host > paper-material {
         top: 0;
         left: 0;
@@ -37,7 +60,6 @@
         border-radius: 17px;
         position: absolute;
         overflow: hidden;
-        zoom: .5;
       }
       .open {
         zoom: 1;
@@ -58,7 +80,7 @@
         background-color: #fff6;
       }
     </style>
-    <paper-material elevation="2" class$="[[display]] [[tone]]" style$="background:[[_bg]];color:[[_fg]]">
+    <paper-material elevation="2" class$="[[display]] [[tone]] [[cols]]" style$="background:[[_bg]];color:[[_fg]]">
       <slot></slot><content></content>
     </paper-material>
   </template>
