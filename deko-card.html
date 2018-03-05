@@ -80,7 +80,7 @@
         background-color: #fff6;
       }
     </style>
-    <paper-material elevation="2" class$="[[display]] [[tone]] c[[cols]]" style$="background:[[_bg]];color:[[_fg]]">
+    <paper-material elevation="[[elevation]]" class$="[[display]] [[tone]] c[[cols]]" style$="background:[[_bg]];color:[[_fg]]">
       <slot></slot><content></content>
     </paper-material>
   </template>
@@ -98,6 +98,17 @@
       _fg: {
         type: String,
         computed: "getFg(_bg)",
+      },
+      elevation: {
+        computed: "getElevation(selected,glued)",
+      },
+      selected: {
+        type: Boolean,
+        value: false,
+      },
+      glued: {
+        type: Boolean,
+        value: false,
       },
     },
     getBg: function(color, title) {
