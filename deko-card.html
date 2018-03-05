@@ -111,6 +111,15 @@
         value: false,
       },
     },
+    getElevation: function(selected,glued){
+      if (glued) {
+        return 0
+      } else if (selected) {
+        return 5
+      } else {
+        return 3
+      }
+    },
     getBg: function(color, title) {
       return color || Please.make_color({
         from_hash: title
